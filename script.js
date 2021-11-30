@@ -57,6 +57,7 @@ const initTablesOfContent = () => {
         blogEntries.forEach(entry => {
             var link = document.createElement("a");
             link.setAttribute("href", `#${entry.Buzzword}`);
+            link.setAttribute("style", "width: 100%");
             var liElem = document.createElement("li");
             var liText = document.createTextNode(entry.Buzzword);
             link.appendChild(liText);

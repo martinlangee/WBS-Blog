@@ -59,6 +59,10 @@ li {
     margin: 10px 5px;
 }
 
+.vertical-list li a {
+    display: flex;
+}
+
 .vertical-list li:hover {
     background: var(--item-hover-color);
 }
