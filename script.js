@@ -1,3 +1,4 @@
+// the blog data
 const blogEntries = [{
     "Image": "/images/logo.png",
     "Buzzword": "My own blog",
@@ -24,7 +25,8 @@ const blogEntries = [{
 const initBlogEntries = () => {
     let cnt = document.getElementById('content');
 
-    let entriesTxt = blogEntries.reduce((prev, curr) => {
+    // concat the blog entries sorted by date into HTML structure
+    let entriesTxt = blogEntries.sort((a, b) => a.Date < b.Date).reduce((prev, curr) => {
         const imagePart =
             `    <div class="blog-entry-image">` +
             `        <img src="${curr.Image}" width="200">` +
@@ -42,14 +44,14 @@ const initBlogEntries = () => {
                 `<div class="blog-entry" id="${curr.Buzzword}">${textPart}${imagePart}</div>`)
     }, "");
     cnt.innerHTML = entriesTxt;
-    console.log("Blog entries loaded.");
 }
 
 const initTablesOfContent = () => {
+    // get alle elements where a content list is to be inserted
     let allTablesOfContent = document.getElementsByClassName("content-list");
     console.log(allTablesOfContent);
 
-    // clear all tables of content and re-create from json
+    // clear all tables of content and re-create from json data
     for (let ulElem of allTablesOfContent) {
         ulElem.innerHTML = "";
         blogEntries.forEach(entry => {
