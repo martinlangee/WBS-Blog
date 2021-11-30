@@ -6,6 +6,7 @@
     --content-bk-color: #e0f3ff;
     --body-bk-color: #c9e5ec;
     --body-alt-bk-color: #eef9fc;
+    --item-hover-color: #e0f3ff;
 }
 
 body {
@@ -58,6 +59,10 @@ li {
     margin: 10px 5px;
 }
 
+.vertical-list li:hover {
+    background: var(--item-hover-color);
+}
+
 .vertical-list li:first-child {
     margin: 0px 5px 10px 5px;
 }
@@ -80,6 +85,10 @@ li {
     padding: 5px 20px;
 }
 
+.header-list li a:hover {
+    background: var(--item-hover-color);
+}
+
 .footer-content-list-ctn {
     padding: 10px;
 }
@@ -98,6 +107,10 @@ li {
 .footer-list li a {
     background-color: var(--item-bk-color);
     padding: 5px 20px;
+}
+
+.footer-list li a:hover {
+    background: var(--item-hover-color);
 }
 
 .content {
