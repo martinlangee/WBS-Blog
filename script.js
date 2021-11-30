@@ -38,7 +38,7 @@ const initBlogEntries = () => {
         const even = blogEntries.indexOf(curr) % 2 == 0;
         return prev +
             (even ?
-                `<div class="blog-entry" id="${curr.Buzzword}">${imagePart}${textPart}</div>` :
+                `<div class="blog-entry blog-entry-even" id="${curr.Buzzword}">${imagePart}${textPart}</div>` :
                 `<div class="blog-entry" id="${curr.Buzzword}">${textPart}${imagePart}</div>`)
     }, "");
     cnt.innerHTML = entriesTxt;
@@ -46,7 +46,7 @@ const initBlogEntries = () => {
 }
 
 const initTablesOfContent = () => {
-    let allTablesOfContent = document.getElementsByClassName("header-list");
+    let allTablesOfContent = document.getElementsByClassName("content-list");
     console.log(allTablesOfContent);
 
     // clear all tables of content and re-create from json

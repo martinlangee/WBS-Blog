@@ -2,14 +2,16 @@
 *::before,
 *::after {
     box-sizing: border-box;
-    font-family: Gotham Rounded, sans-serif;
-    font-weight: normal;
+    --item-bk-color: lightskyblue;
+    --content-bk-color: #e0f3ff;
+    --body-bk-color: #c9e5ec;
+    --body-alt-bk-color: #eef9fc;
 }
 
 body {
     padding: 0;
     margin: 0;
-    background: #c9e5ec;
+    background: var(--body-bk-color);
     display: grid;
     grid-template-columns: 15% auto;
     grid-template-rows: 20% auto 20%;
@@ -18,15 +20,22 @@ body {
 
 header {
     grid-area: header;
-    background-color: white;
+    font-family: sans-serif;
 }
 
 aside {
     grid-area: sidebar;
+    font-family: sans-serif;
 }
 
 footer {
     grid-area: footer;
+    font-family: sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 ul {
@@ -35,8 +44,24 @@ ul {
     padding: 0;
 }
 
-ul#horizontal-list li {
+li {
+    color: inherit;
+    background-color: var(--item-bk-color);
+    padding: 5px 10px;
+    margin: 5px;
+}
+
+.horizontal-list li {
     display: inline;
+}
+
+.vertical-list li {
+    display: flex;
+    margin: 10px 5px;
+}
+
+.vertical-list li:first-child {
+    margin: 0px 5px 10px 5px;
 }
 
 .logo {
@@ -47,12 +72,47 @@ ul#horizontal-list li {
     align-items: center;
 }
 
+.top-content-list-ctn {
+    text-align: center;
+    padding: 10px;
+}
+
+.footer-content-list-ctn {
+    padding: 10px;
+}
+
+.footer-list {
+    width: 100%;
+    display: inline-table;
+}
+
+.footer-list li {
+    display: table-cell;
+    padding-left: 10px;
+    background-color: transparent
+}
+
+.footer-list li a {
+    background-color: var(--item-bk-color);
+    padding: 5px 20px;
+}
+
 .content {
     grid-area: content;
+    font-family: serif;
+    font-weight: normal;
+    background: var(--content-bk-color);
 }
 
 .blog-entry {
     display: flex;
+    padding: 1em;
+}
+
+.blog-entry-even {
+    display: flex;
+    padding: 1em;
+    background: var(--body-alt-bk-color);
 }
 
 .blog-entry-image {
@@ -62,3 +122,5 @@ ul#horizontal-list li {
 .blog-entry-text {
     width: 80%;
 }
+
+n
