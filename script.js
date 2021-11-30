@@ -25,7 +25,7 @@ const blogEntries = [{
 const initBlogEntries = () => {
     let cnt = document.getElementById('content');
 
-    // concat the blog entries sorted by date into HTML structure
+    // transform the blog entries sorted by date into HTML structure
     let entriesTxt = blogEntries.sort((a, b) => a.Date < b.Date).reduce((prev, curr) => {
         const imagePart =
             `    <div class="blog-entry-image">` +
