@@ -1,0 +1,66 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-family: "Brush Script MT", cursive;
+    font-weight: normal;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: #c9e5ec;
+    display: grid;
+    grid-template-columns: 15% auto;
+    grid-template-rows: 20% auto 20%;
+    grid-template-areas: "header header" "sidebar content" "footer footer";
+}
+
+header {
+    grid-area: header;
+    background-color: white;
+}
+
+aside {
+    grid-area: sidebar;
+}
+
+footer {
+    grid-area: footer;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul#horizontal-list li {
+    display: inline;
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    justify-self: center;
+    align-items: center;
+}
+
+.content {
+    grid-area: content;
+}
+
+.blog-entry {
+    display: flex;
+}
+
+.blog-entry-image {
+    width: 20%;
+    background-color: lightcoral;
+}
+
+.blog-entry-text {
+    width: 80%;
+    background-color: lightgrey;
+}
