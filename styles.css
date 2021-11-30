@@ -2,7 +2,7 @@
 *::before,
 *::after {
     box-sizing: border-box;
-    font-family: "Brush Script MT", cursive;
+    font-family: Gotham Rounded, sans-serif;
     font-weight: normal;
 }
 
@@ -57,10 +57,8 @@ ul#horizontal-list li {
 
 .blog-entry-image {
     width: 20%;
-    background-color: lightcoral;
 }
 
 .blog-entry-text {
     width: 80%;
-    background-color: lightgrey;
 }
