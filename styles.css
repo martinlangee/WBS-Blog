@@ -19,6 +19,12 @@ body {
     grid-template-areas: "header header" "sidebar content" "footer footer";
 }
 
+@media screen and (max-width: 800px) {
+    body {
+        grid-template-columns: 0px auto;
+    }
+}
+
 header {
     grid-area: header;
     font-family: sans-serif;
@@ -129,7 +135,7 @@ li {
     padding: 20px;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
     .blog-entry {
         display: inherit;
     }
