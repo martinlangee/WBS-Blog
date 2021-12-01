@@ -52,7 +52,7 @@ ul {
 }
 
 li {
-    padding: 5px 10px;
+    padding: 5px 20px 5px 0px;
 }
 
 .horizontal-list li {
@@ -68,7 +68,8 @@ li {
 .vertical-list li {
     display: flex;
     background-color: var(--item-bk-color);
-    margin: 10px 5px;
+    padding: 5px 10px;
+    margin: 0px 5px 10px 5px;
 }
 
 .vertical-list li a {
@@ -77,10 +78,6 @@ li {
 
 .vertical-list li:hover {
     background: var(--item-hover-color);
-}
-
-.vertical-list li:first-child {
-    margin: 0px 5px 10px 5px;
 }
 
 .logo {
@@ -93,7 +90,8 @@ li {
 
 .header-content-list-ctn {
     text-align: center;
-    padding: 10px;
+    padding: 15px 5px;
+    display: inline-block;
 }
 
 @media screen and (max-width: 800px) {
@@ -104,7 +102,7 @@ li {
 
 .header-list li a {
     background-color: var(--item-bk-color);
-    padding: 5px 20px;
+    padding: 5px 10px;
 }
 
 .header-list li a:hover {
@@ -138,7 +136,7 @@ li {
 
 .footer-list li a {
     background-color: var(--item-bk-color);
-    padding: 5px 20px;
+    padding: 5px 10px;
 }
 
 .footer-list li a:hover {
