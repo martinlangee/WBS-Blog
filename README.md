@@ -8,8 +8,8 @@ Final pre-exam for the WBS coding school
 
 
 ## ToDos
-### Error handling
-* Data entries are not correct/empty etc.?
+### Design
+* implement line breaking or scrolling when too many entries appear
 ### Data handling
 * Get blog data from a seperate local JSON file
 * Future: Fetch blog data from server via REST...
