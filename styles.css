@@ -14,7 +14,7 @@ body {
     margin: 0;
     background: var(--body-bk-color);
     display: grid;
-    grid-template-columns: 15% auto;
+    grid-template-columns: 200px auto;
     grid-template-rows: 20% auto 20%;
     grid-template-areas: "header header" "sidebar content" "footer footer";
 }
@@ -126,19 +126,14 @@ li {
 
 .blog-entry {
     display: flex;
-    padding: 1em;
-}
-
-.blog-entry-even {
-    display: flex;
-    padding: 1em;
-    background: var(--body-alt-bk-color);
+    padding: 20px 0px;
 }
 
 .blog-entry-image {
-    width: 20%;
+    width: 250px;
+    margin-left: 20px;
 }
 
 .blog-entry-text {
-    width: 80%;
+    margin-left: 20px;
 }

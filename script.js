@@ -8,7 +8,7 @@ const blogEntries = [{
     "Date": "2021-10-10",
 }, {
     "Image": "/images/me-none.png",
-    "Buzzword": "Me from triangles",
+    "Buzzword": "Me from polygons",
     "Title": "Little program making polygon images",
     "Text": "Ex pariatur veniam ad laborum minim mollit pariatur ex consectetur dolore consequat nisi incididunt. Cupidatat voluptate ea ipsum voluptate enim aliqua qui. Quis Lorem nisi non sunt qui. Id nulla id ex id qui quis consequat. Pariatur in consectetur labore labore id tempor. Et laboris ullamco excepteur veniam ea consequat quis. Labore anim dolore nostrud ex sunt incididunt voluptate.",
     "Editor": "John Doe",
@@ -37,10 +37,11 @@ const initBlogEntries = () => {
             `        <p>${curr.Text}</p>` +
             `        <p>${curr.Editor} - ${curr.Date}</p>` +
             `    </div>`;
+        // create divs according to the even or odd index
         const even = blogEntries.indexOf(curr) % 2 == 0;
         return prev +
             (even ?
-                `<div class="blog-entry blog-entry-even" id="${curr.Buzzword}">${imagePart}${textPart}</div>` :
+                `<div class="blog-entry" id="${curr.Buzzword}">${imagePart}${textPart}</div>` :
                 `<div class="blog-entry" id="${curr.Buzzword}">${textPart}${imagePart}</div>`)
     }, "");
     cnt.innerHTML = entriesTxt;
