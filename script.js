@@ -22,14 +22,14 @@ const blogEntries = [{
     "Date": "2021-10-26",
 }];
 
-const initBlogEntries = () => {
+const initBlogEntries = (queryResult) => {
     let cnt = document.getElementById('content');
 
     // transform the blog entries sorted by date into HTML structure
     let entriesTxt = blogEntries.sort((a, b) => a.Date < b.Date).reduce((prev, curr) => {
         const imagePart =
-            `    <div class="blog-entry-image">` +
-            `        <img src="${curr.Image}" width="200">` +
+            `    <div>` +
+            `        <img class="blog-entry-image" src="${curr.Image}">` +
             `    </div>`;
         const textPart =
             `    <div class="blog-entry-text">` +
@@ -37,8 +37,8 @@ const initBlogEntries = () => {
             `        <p>${curr.Text}</p>` +
             `        <p>${curr.Editor} - ${curr.Date}</p>` +
             `    </div>`;
-        // create divs according to the even or odd index
-        const even = blogEntries.indexOf(curr) % 2 == 0;
+        // create divs according to the even or odd index; in case of smart phone or tablet screen, show all in the same order
+        const even = blogEntries.indexOf(curr) % 2 == 0 || queryResult.matches;
         return prev +
             (even ?
                 `<div class="blog-entry" id="${curr.Buzzword}">${imagePart}${textPart}</div>` :
@@ -68,5 +68,11 @@ const initTablesOfContent = () => {
     };
 }
 
-initBlogEntries();
-initTablesOfContent();
+const refreshAll = (queryResult) => {
+    initBlogEntries(queryResult);
+    initTablesOfContent();
+}
+
+var queryResult = window.matchMedia("(max-width: 1000px)")
+refreshAll(queryResult);
+queryResult.addListener(refreshAll);
