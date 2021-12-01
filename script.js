@@ -14,6 +14,20 @@ const blogEntries = [{
     "Editor": "John Doe",
     "Date": "2021-10-19",
 }, {
+    "Image": "",
+    "Buzzword": "Without image",
+    "Title": "Blog entry without an image",
+    "Text": "Ex pariatur veniam ad laborum minim mollit pariatur ex consectetur dolore consequat nisi incididunt. Cupidatat voluptate ea ipsum voluptate enim aliqua qui. Quis Lorem nisi non sunt qui. Id nulla id ex id qui quis consequat. Pariatur in consectetur labore labore id tempor. Et laboris ullamco excepteur veniam ea consequat quis. Labore anim dolore nostrud ex sunt incididunt voluptate.",
+    "Editor": "Peter Empty",
+    "Date": "2021-10-21",
+}, {
+    "Image": "",
+    "Buzzword": "Also without image",
+    "Title": "Blog entry also without an image",
+    "Text": "Ex pariatur veniam ad laborum minim mollit pariatur ex consectetur dolore consequat nisi incididunt. Cupidatat voluptate ea ipsum voluptate enim aliqua qui. Quis Lorem nisi non sunt qui. Id nulla id ex id qui quis consequat. Pariatur in consectetur labore labore id tempor. Et laboris ullamco excepteur veniam ea consequat quis. Labore anim dolore nostrud ex sunt incididunt voluptate.",
+    "Editor": "Angela Void",
+    "Date": "2021-10-20",
+}, {
     "Image": "/images/roof-terrace.png",
     "Buzzword": "Roof terrace",
     "Title": "This is the roof terrace where I'm working",
@@ -26,7 +40,7 @@ const initBlogEntries = (queryResult) => {
     let cnt = document.getElementById('content');
 
     // transform the blog entries sorted by date into HTML structure
-    let entriesTxt = blogEntries.sort((a, b) => a.Date < b.Date).reduce((prev, curr) => {
+    let entriesHTML = blogEntries.sort((a, b) => a.Date < b.Date).reduce((prev, curr) => {
         const imagePart =
             `    <div>` +
             `        <img class="blog-entry-image" src="${curr.Image}">` +
@@ -37,6 +51,7 @@ const initBlogEntries = (queryResult) => {
             `        <p>${curr.Text}</p>` +
             `        <p>${curr.Editor} - ${curr.Date}</p>` +
             `    </div>`;
+
         // create divs according to the even or odd index; in case of smart phone or tablet screen, show all in the same order
         const isSmallScreen = queryResult.matches;
         const even = blogEntries.indexOf(curr) % 2 == 0;
@@ -45,7 +60,9 @@ const initBlogEntries = (queryResult) => {
                 `<div class="blog-entry` + (even ? ` blog-entry-even` : ``) + `" id="${curr.Buzzword}">${imagePart}${textPart}</div>` :
                 `<div class="blog-entry" id="${curr.Buzzword}">${textPart}${imagePart}</div>`);
     }, "");
-    cnt.innerHTML = entriesTxt;
+
+    // insert the created HTML into the document
+    cnt.innerHTML = entriesHTML;
 }
 
 const initTablesOfContent = () => {
