@@ -34,9 +34,33 @@ const blogEntries = [{
     "Text": "Quis pariatur quis cupidatat commodo cupidatat labore adipisicing veniam esse sit voluptate tempor aute. In minim laborum reprehenderit nulla fugiat cillum aliqua aliquip sit deserunt. Anim quis eu excepteur veniam non ullamco incididunt in. Esse non eu sit esse. Consectetur culpa reprehenderit officia eiusmod eu culpa magna. Voluptate dolor do laboris occaecat minim cillum aute consequat laborum nulla labore pariatur.",
     "Editor": "Marie Wonder",
     "Date": "2021-10-26",
+}, {
+    "Image": "/images/roof-terrace.png",
+    "Buzzword": "Roof terrace",
+    "Title": "This is the roof terrace where I'm working (duplicate)",
+    "Text": "Quis pariatur quis cupidatat commodo cupidatat labore adipisicing veniam esse sit voluptate tempor aute. In minim laborum reprehenderit nulla fugiat cillum aliqua aliquip sit deserunt. Anim quis eu excepteur veniam non ullamco incididunt in. Esse non eu sit esse. Consectetur culpa reprehenderit officia eiusmod eu culpa magna. Voluptate dolor do laboris occaecat minim cillum aute consequat laborum nulla labore pariatur.",
+    "Editor": "Marie Wonder",
+    "Date": "2021-10-26",
 }];
 
+// in case the entry list contains entries with duplicate "Buzzword" attribute, 
+// it will be fixed here by adding "-1", "-2" and so on to the display
+const handleDuplicateBuzzwords = () => {
+    blogEntries.forEach(entry => {
+        let filterList = blogEntries.filter(checkEntry => entry.Buzzword === checkEntry.Buzzword);
+        let dupIndexList = filterList.map(entry => blogEntries.indexOf(entry));
+        if (dupIndexList.length > 1) {
+            dupIndexList.forEach((index, runningIndex) => blogEntries[index].Buzzword += `-${runningIndex + 1}`)
+        }
+    });
+}
+
+// Blog entries are sorted by date and processed into HTML
+// It is considered if the entries have even or odd index concerning the position of the image (left or right)
+// Also the screen width is respected.
 const initBlogEntries = (queryResult) => {
+    handleDuplicateBuzzwords();
+
     let cnt = document.getElementById('content');
 
     // transform the blog entries sorted by date into HTML structure
@@ -65,6 +89,7 @@ const initBlogEntries = (queryResult) => {
     cnt.innerHTML = entriesHTML;
 }
 
+// all three tables of content are filled
 const initTablesOfContent = () => {
     // get alle elements where a content list is to be inserted
     let allTablesOfContent = document.getElementsByClassName("content-list");
@@ -76,7 +101,7 @@ const initTablesOfContent = () => {
         blogEntries.forEach(entry => {
             var link = document.createElement("a");
             link.setAttribute("href", `#${entry.Buzzword}`);
-            link.setAttribute("style", "width: 100%");
+            link.setAttribute("class", "a-content-list-item");
             var liElem = document.createElement("li");
             var liText = document.createTextNode(entry.Buzzword);
             link.appendChild(liText);
@@ -86,6 +111,7 @@ const initTablesOfContent = () => {
     };
 }
 
+// refresh all dynamic content; called also on change from full screen to tablet-style view
 const refreshAll = (queryResult) => {
     initBlogEntries(queryResult);
     initTablesOfContent();
@@ -93,4 +119,4 @@ const refreshAll = (queryResult) => {
 
 let queryResult = window.matchMedia("(max-width: 1000px)");
 refreshAll(queryResult);
-queryResult.addListener(refreshAll);
+queryResult.addListener(refreshAll); // "addListener" is deprecated but works (!?)

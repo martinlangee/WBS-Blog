@@ -8,4 +8,8 @@ Final pre-exam for the WBS coding school
 
 
 ## ToDos
-None at the moment
+### Error handling
+* Data entries are not correct/empty etc.?
+### Data handling
+* Get blog data from a seperate local JSON file
+* Future: Fetch blog data from server via REST...

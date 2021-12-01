@@ -181,3 +181,7 @@ li {
 .blog-entry-text {
     margin-right: 20px;
 }
+
+.a-content-list-item {
+    width: 100%;
+}
