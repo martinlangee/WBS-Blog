@@ -38,11 +38,12 @@ const initBlogEntries = (queryResult) => {
             `        <p>${curr.Editor} - ${curr.Date}</p>` +
             `    </div>`;
         // create divs according to the even or odd index; in case of smart phone or tablet screen, show all in the same order
-        const even = blogEntries.indexOf(curr) % 2 == 0 || queryResult.matches;
+        const isSmallScreen = queryResult.matches;
+        const even = blogEntries.indexOf(curr) % 2 == 0;
         return prev +
-            (even ?
-                `<div class="blog-entry" id="${curr.Buzzword}">${imagePart}${textPart}</div>` :
-                `<div class="blog-entry" id="${curr.Buzzword}">${textPart}${imagePart}</div>`)
+            (even || isSmallScreen ?
+                `<div class="blog-entry` + (even ? ` blog-entry-even` : ``) + `" id="${curr.Buzzword}">${imagePart}${textPart}</div>` :
+                `<div class="blog-entry" id="${curr.Buzzword}">${textPart}${imagePart}</div>`);
     }, "");
     cnt.innerHTML = entriesTxt;
 }
@@ -73,6 +74,6 @@ const refreshAll = (queryResult) => {
     initTablesOfContent();
 }
 
-var queryResult = window.matchMedia("(max-width: 1000px)")
+let queryResult = window.matchMedia("(max-width: 1000px)");
 refreshAll(queryResult);
 queryResult.addListener(refreshAll);

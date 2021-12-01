@@ -112,7 +112,7 @@ li {
 }
 
 .footer-content-list-ctn {
-    padding: 10px;
+    padding: 5px 0px 0px 0px;
     position: fixed;
     bottom: 0px;
     width: 100%;
@@ -155,6 +155,10 @@ li {
 .blog-entry {
     display: flex;
     padding: 20px;
+}
+
+.blog-entry-even {
+    background: var(--body-alt-bk-color);
 }
 
 @media screen and (max-width: 1000px) {
