@@ -126,7 +126,13 @@ li {
 
 .blog-entry {
     display: flex;
-    padding: 20px 0px;
+    padding: 20px;
+}
+
+@media screen and (max-width: 800px) {
+    .blog-entry {
+        display: inherit;
+    }
 }
 
 .blog-entry-image {
