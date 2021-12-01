@@ -113,6 +113,10 @@ li {
 
 .footer-content-list-ctn {
     padding: 10px;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    background: var(--body-bk-color);
 }
 
 @media screen and (max-width: 800px) {
