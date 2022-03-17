@@ -1,5 +1,5 @@
 # WBS-Blog
-Final pre-exam for the WBS coding school
+Final pre-exam for the WBS coding school using vanilla JavaScript and HTML.
 
 ## Description
 <p>I hope I understood the wire frame correctly - but I seems to be only an approximate guideline.</p>
